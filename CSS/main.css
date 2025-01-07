@@ -5,16 +5,15 @@
 }
 
 body {
-    /* #363532, rgb(88, 111, 112) */
     align-items: center;
     display: flex;
     flex-direction: column;
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
     padding-top: 3%;
+    transition: background-color 0.5s, color 0.5s;
 }
 
-/* Body light or darker themes */
 .standard {
     background-image: linear-gradient(100deg, #575656, #062e3f);
     color: #ffdfdb;
@@ -50,7 +49,6 @@ body {
     width: 100%;
 }
 
-/* Theme buttons div */
 .flexrow-container {
     align-items: center;
     align-self: flex-end;
@@ -64,11 +62,11 @@ body {
     border-radius: 100%;
     height: 35px;
     margin: 0 8px;
-    transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
+    transition: transform 150ms ease-in-out, box-shadow 200ms ease-in-out;
     width: 35px;
 }
 
-.theme-selector:hover { 
+.theme-selector:hover {
     box-shadow: white 0 0 8px;
     cursor: pointer;
 }
@@ -93,41 +91,31 @@ body {
 #title {
     border-right: solid 3px rgba(0, 0, 0, 0.75);
     white-space: pre;
-    overflow: hidden;     
+    overflow: hidden;
     letter-spacing: 0.20rem;
     margin-top: 50px;
     margin-bottom: 20px;
     max-width: 480px;
-  }
-  
-  /* Animation */
-#title {
-    animation: animated-text 2s steps(11,end) 0.5s 1 normal both,
-        animated-cursor 750ms steps(11,end) infinite;
-  }
+}
 
 #title.darker-title {
     animation: animated-text 2s steps(11,end) 0.5s 1 normal both, darker-animated-cursor 750ms steps(11,end) infinite;
 }
-  
-  /* text animation */
-  
-  @keyframes animated-text{
-    from{width: 0%;}
-    to{width: 480px;}
-  }
-  
-  /* cursor animations */
-  
-  @keyframes animated-cursor{
-    from{border-right-color: rgba(0, 0, 0, 0.75);}
-    to{border-right-color: transparent;}
-  }
 
-  @keyframes darker-animated-cursor {
-    from{border-right-color: #01394c;}
-    to{border-right-color: transparent;}
-  }
+@keyframes animated-text {
+    from { width: 0%; }
+    to { width: 480px; }
+}
+
+@keyframes animated-cursor {
+    from { border-right-color: rgba(0, 0, 0, 0.75); }
+    to { border-right-color: transparent; }
+}
+
+@keyframes darker-animated-cursor {
+    from { border-right-color: #01394c; }
+    to { border-right-color: transparent; }
+}
 
 form {
     display: flex;
@@ -143,7 +131,6 @@ form input {
     font-size: 17px;
     border: none;
     outline: none;
-    /* border-radius: 15; */
     border-top-left-radius: 17px;
     border-bottom-left-radius: 17px;
     max-width: 500px;
@@ -151,31 +138,19 @@ form input {
     width: 100%;
 }
 
-/* Input themes */
 form input.standard-input {
     background-color: #181a1a;
     color: rgb(247, 226, 223);
 }
-
 
 form input.light-input {
     background-color: #AEB1B4;
     color: #1a150e;
 }
 
-form input.light-input::placeholder {
-    color: #1a150e;
-    opacity: 0.7;
-}
-
 form input.darker-input {
     background-color: #01394c;
     color: white;
-}
-
-form input.darker-input::placeholder {
-    color: white;
-    opacity: 0.7;
 }
 
 form input:hover {
@@ -196,7 +171,7 @@ form input.darker-input:hover {
 
 button {
     border: none;
-    outline: none; 
+    outline: none;
     transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
 }
 
@@ -204,7 +179,6 @@ button:hover {
     cursor: pointer;
 }
 
-/* Button themes */
 button.standard-button {
     background-color: rgb(247, 226, 223);
     color: rgb(0, 0, 0);
@@ -250,15 +224,11 @@ form button {
 
 .todo-list {
     min-width: 25%;
-
-    /* To remove the bullets of unordered list */
     list-style: none;
 }
 
 .todo {
     margin: 1rem;
-    /* background: rgb(247, 226, 223); */
-    /* color: black; */
     font-size: 19px;
     display: flex;
     justify-content: space-between;
@@ -268,28 +238,22 @@ form button {
     transition: background-color 200ms ease-in-out;
 }
 
-/* Items themes */
 .standard-todo {
     background-color: rgb(26, 27, 27);
 }
 
 .light-todo {
-    background-color:#AEB1B4;
+    background-color: #AEB1B4;
 }
 
 .darker-todo {
     background-color: #01394c;
 }
 
-.todo li{
+.todo li {
     padding: 7px;
-    /* word-wrap: break-word; */
-    /* flex-wrap: wrap; */
     font-size: 20px;
-    flex: 1; /* To push the trash and the check button to the right */
-    border-radius: 30px;
-
-    /* wraps the links */
+    flex: 1;
     overflow-wrap: anywhere;
 }
 
@@ -302,17 +266,7 @@ form button {
     margin: 0 5px;
 }
 
-.todo-item {
-    padding: 0rem 0.5rem;
-}
-
-.fa-trash, .fa-check { 
-    pointer-events: none;
-}
-
-
 .completed {
-    transition: 0.2s;
     text-decoration: line-through;
     opacity: 0.5;
 }
@@ -323,7 +277,6 @@ form button {
     opacity: 0;
 }
 
-/* Responsive design */
 @media only screen and (max-width: 1000px) {
     .flexrow-container {
         align-self: unset;
@@ -337,9 +290,7 @@ form button {
     }
 
     #title {
-        animation: 
-            animated-text 3s steps(16,end) 0.5s 1 normal both,
-            animated-cursor 750ms steps(16,end) infinite;
+        animation: animated-text 3s steps(16,end) 0.5s 1 normal both, animated-cursor 750ms steps(16,end) infinite;
         margin-bottom: 10px;
         margin-top: 30px;
         max-width: 330px;
@@ -352,14 +303,10 @@ form button {
     }
 
     #title {
-        animation: 
-            animated-text 3.5s steps(16,end) 0.5s 1 normal both,
-            animated-cursor 750ms steps(16,end) infinite;
+        animation: animated-text 3.5s steps(16,end) 0.5s 1 normal both, animated-cursor 750ms steps(16,end) infinite;
         max-width: 255px;
     }
-}
 
-@media only screen and (max-width: 400px) {
     form {
         align-items: center;
         flex-direction: column;
@@ -374,7 +321,12 @@ form button {
         margin-top: 15px;
         width: 50%;
     }
-    form > button.light-button {
-        box-shadow: 0 0 5px lightgray;
+}
+
+@media only screen and (max-width: 400px) {
+    .todo {
+        font-size: 1.5rem;
+        padding: 10px 15px;
+        margin: 10px;
     }
 }
