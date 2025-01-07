@@ -1,5 +1,29 @@
+.github-corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    z-index: 10;
+}
+
+.github-corner .octo-arm {
+    transform-origin: 130px 106px;
+    fill: #151513;
+    transition: fill 0.3s ease;
+}
+
+.github-corner .octo-body {
+    fill: #ffffff;
+    transition: fill 0.3s ease;
+}
+
 .github-corner:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
+}
+
+.github-corner:hover .octo-body {
+    fill: #f5c518; /* Highlighted yellow color */
 }
 
 @keyframes octocat-wave {
@@ -28,6 +52,12 @@
     }
 }
 
+/* Add a pulsing effect on hover */
+.github-corner:hover {
+    box-shadow: 0 0 15px rgba(245, 197, 24, 0.6), 0 0 30px rgba(245, 197, 24, 0.4);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
 @media (max-width: 500px) {
     .github-corner:hover .octo-arm {
         animation: none;
@@ -36,4 +66,23 @@
     .github-corner .octo-arm {
         animation: octocat-wave 560ms ease-in-out;
     }
+}
+
+/* Adding a subtle bounce animation to the corner when it loads */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.github-corner {
+    animation: bounce 1.5s ease;
 }
